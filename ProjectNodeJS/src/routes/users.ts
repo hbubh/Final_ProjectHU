@@ -73,8 +73,12 @@ usersRouter.delete(
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const user = await User.findByIdAndDelete(id).lean();
-      return res.json({ user: user });
+      const user = await User.findById(id).lean();
+      if (user.email == "admin@gmail.com") {
+        throw new AppError(`You Cannot Delete My Admin!`, 401);
+      }
+      const user1 = await User.findByIdAndDelete(id).lean();
+      return res.json({ user: user1 });
     } catch (e) {
       next(e);
     }
@@ -91,7 +95,6 @@ usersRouter.patch("/:id", isAdmin, async (req, res, next) => {
     if (isBusiness == false) {
       isBusiness = true;
     }
-    console.log(isBusiness);
     const saved = await User.findOneAndUpdate(
       { _id: req.params.id },
       { $set: { isBusiness: isBusiness } },

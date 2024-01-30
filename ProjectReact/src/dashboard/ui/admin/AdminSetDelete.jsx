@@ -33,7 +33,7 @@ const AdminSetDelete = ({ setDis, thisDis }) => {
         setCircle(" Delete User!");
       }, 3000);
     } catch (err) {
-      toast.info(`Unsuccess data error, ${err.response.data} `, {
+      toast.info(`Unsuccess data error, ${err.response.data.message} `, {
         position: toast.POSITION.TOP_CENTER,
       });
     }

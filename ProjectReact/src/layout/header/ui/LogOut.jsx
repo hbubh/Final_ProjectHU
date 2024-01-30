@@ -16,7 +16,7 @@ const LogOut = () => {
     sessionStorage.clear("token");
     window.scrollTo(0, 0);
     dispatch(authActions.logout());
-    navigate(ROUTES.LOGIN);
+    navigate(ROUTES.HOME);
   };
 
   return (

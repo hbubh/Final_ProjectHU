@@ -91,13 +91,19 @@ const DashboardT = () => {
           {!thisUser.isBusiness ? null : secondaryListItems}
 
           <Divider sx={{ my: 1 }} />
-          {!thisUser.isBusiness || !thisUser.isPro ? (
-            <ListSubheader component="div" inset>
-              Upgrade's Offer
-            </ListSubheader>
-          ) : null}
-          {thisUser.isPro ? null : proList}
-          {thisUser.isBusiness ? null : buzzList}
+          {thisUser.myShares ? (
+            thisUser.isBusiness || thisUser.isPro ? null : (
+              <React.Fragment>
+                <ListSubheader component="div" inset>
+                  Upgrade's Offer
+                </ListSubheader>
+                {thisUser.isPro ? null : proList}
+                {thisUser.isBusiness ? null : buzzList}
+              </React.Fragment>
+            )
+          ) : (
+            <></>
+          )}
         </List>
       </Drawer>
       <Box

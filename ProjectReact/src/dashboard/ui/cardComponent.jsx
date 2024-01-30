@@ -9,45 +9,20 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
 import ROUTES from "../../routes/ROUTES";
+import featuredPosts from "../../pages/news/ui/subMain";
 
 export default function MediaCard({ thisTheme }) {
-  const featuredPosts = [
-    {
-      title: "Oil in Russia",
-      date: "Feb 12",
-      description:
-        "Oil prices rise against the background of the war in Russia",
-      image:
-        "https://media.licdn.com/dms/image/C5612AQHcwng9vDAfaw/article-cover_image-shrink_600_2000/0/1633608757917?e=2147483647&v=beta&t=83yqErWHe4UgFyKeEIjt0rdlN5Jkf6gilh2gx_9Rtxg",
-      imageLabel: "Image Text",
-    },
-    {
-      title: "AI : the next step",
-      date: "Jan 03",
-      description:
-        "The start-up companies report large waves of layoffs following the artificial intelligence solution",
-      image:
-        "https://onpassivenews.us/wp-content/uploads/2021/05/ai_artificial_intelligence_ml_machine_learning_vector_by_kohb_gettyimages_1146634284-100817775-large-1024x683.jpg",
-      imageLabel: "Image Text",
-    },
-    {
-      title: "Banks GrowUP",
-      date: "Jan 23",
-      description:
-        "A sharp increase in mortgages leads to improved results in the bank index",
-      image:
-        "https://www.emergingrisks.co.uk/wp-content/uploads/2020/10/Bank-ofengland-Fotolia_116011036_600px.jpg",
-      imageLabel: "Image Text",
-    },
-    {
-      title: "For The Kids: luxury cars please",
-      date: "Jan 23",
-      description: "More and more yo..",
-      image:
-        "https://th.bing.com/th/id/R.2c2d1a8129fae05b679e3c275ff67eeb?rik=r1DEi75Jc2EEKg&pid=ImgRaw&r=0",
-      imageLabel: "Image Text",
-    },
-  ];
+  const randomNumber = Math.floor(Math.random() * 3) + 1;
+  let featuredPost = [];
+  if (randomNumber === 1) {
+    featuredPost = featuredPosts[0];
+  }
+  if (randomNumber === 2) {
+    featuredPost = featuredPosts[1];
+  }
+  if (randomNumber === 3) {
+    featuredPost = featuredPosts[2];
+  }
 
   return (
     <Grid container spacing={3}>
@@ -66,7 +41,7 @@ export default function MediaCard({ thisTheme }) {
           </Typography>
         </Divider>
       </Grid>
-      {featuredPosts.map((ta) => (
+      {featuredPost.map((ta) => (
         <Grid item xs={3} key={ta.title}>
           <Card
             sx={{

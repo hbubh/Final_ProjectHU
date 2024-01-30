@@ -7,6 +7,7 @@ import DeleteUser from "../profile/profileUi/DeleteUser";
 import EditProfile from "../profile/profileUi/EditProfile";
 import LogOutPro from "../profile/profileUi/LogOutProfile";
 import ROUTES from "../../../routes/ROUTES";
+import CircularProgress from "@mui/material/CircularProgress";
 import UserInfo from "./profileUi/UserInfo";
 import TableCharge from "./profileUi/TableCharge";
 let y = 0;
@@ -14,18 +15,20 @@ const Profile = () => {
   const loggedIn = useSelector((bigPie) => bigPie.authSlice.loggedIn);
   const userData = useSelector((bigPie) => bigPie.authSlice.userData);
   const thisTheme = useSelector((bigPie) => bigPie.themeSlice.darkTheme);
-  const [thisWallet, setWallet] = useState("");
-  const [thisCharged, setCharged] = useState("");
+  const [thisWallet, setWallet] = useState(<CircularProgress />);
+  const [thisCharged, setCharged] = useState(<CircularProgress />);
   const [thisMyShares, setMyShares] = useState("");
-  const [thisFirstName, setFirstName] = useState("");
+  const [thisFirstName, setFirstName] = useState(
+    <CircularProgress color="secondary" />
+  );
   const [thisLastName, setLastName] = useState("");
-  const [thisPhone, setPhone] = useState("");
-  const [thisEmail, setEmail] = useState("");
-  const [thisAdd, setAdd] = useState("");
+  const [thisPhone, setPhone] = useState(<CircularProgress />);
+  const [thisEmail, setEmail] = useState(<CircularProgress />);
+  const [thisAdd, setAdd] = useState(<CircularProgress />);
   const [thisCreate, setCreate] = useState("");
   const [thisId, setId] = useState("");
-  const [thisPro, setPro] = useState("");
-  const [thisBus, setBus] = useState("");
+  const [thisPro, setPro] = useState(<CircularProgress />);
+  const [thisBus, setBus] = useState(<CircularProgress />);
   const [thisAdmin, setAdmin] = useState("");
   const [thisUrl, setUrl] = useState("");
   const [thisAlt, setAlt] = useState("");

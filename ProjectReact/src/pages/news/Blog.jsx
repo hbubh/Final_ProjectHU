@@ -5,58 +5,32 @@ import MainFeaturedPost from "./MainFeaturedPost.jsx";
 import FeaturedPost from "./FeaturedPost.jsx";
 import Main from "./Main.jsx";
 import Sidebar from "./Sidebar.jsx";
-import post1 from "./blog-post1";
-import post2 from "./blog-post2";
+import post1 from "./ui/blog-post1.js";
+import post2 from "./ui/blog-post2.js";
+import post3 from "./ui/blog-post3.js";
+import post4 from "./ui/blog-post4.js";
+import mainFeaturedPost from "./ui/main-post.js";
+import featuredPosts from "./ui/subMain.js";
 
-const mainFeaturedPost = {
-  title: "Jerome Powell does not 'disappoint'",
-  description:
-    "The chairman of the Federal Reserve raises interest rates for the fifth time in a row",
-  image:
-    "https://th.bing.com/th/id/R.f5a8929a82bf85e0332fbf618219cd8a?rik=wYCeulfeQfcAzw&pid=ImgRaw&r=0",
-  imageText: "main image description",
-  linkText: "Continue reading…",
-};
-
-const featuredPosts = [
-  {
-    title: "Oil in Russia",
-    date: "Feb 12",
-    description: "Oil prices rise against the background of the war in Russia",
-    image:
-      "https://media.licdn.com/dms/image/C5612AQHcwng9vDAfaw/article-cover_image-shrink_600_2000/0/1633608757917?e=2147483647&v=beta&t=83yqErWHe4UgFyKeEIjt0rdlN5Jkf6gilh2gx_9Rtxg",
-    imageLabel: "Image Text",
-  },
-  {
-    title: "AI : the next step",
-    date: "Jan 03",
-    description:
-      "The start-up companies report large waves of layoffs following the artificial intelligence solution",
-    image:
-      "https://onpassivenews.us/wp-content/uploads/2021/05/ai_artificial_intelligence_ml_machine_learning_vector_by_kohb_gettyimages_1146634284-100817775-large-1024x683.jpg",
-    imageLabel: "Image Text",
-  },
-  {
-    title: "Banks GrowUP",
-    date: "Jan 23",
-    description:
-      "A sharp increase in mortgages leads to improved results in the bank index",
-    image:
-      "https://www.emergingrisks.co.uk/wp-content/uploads/2020/10/Bank-ofengland-Fotolia_116011036_600px.jpg",
-    imageLabel: "Image Text",
-  },
-  {
-    title: "For The Kids: luxury cars please",
-    date: "Jan 23",
-    description:
-      "More and more young people are taking large loans to buy luxury cars",
-    image:
-      "https://th.bing.com/th/id/R.2c2d1a8129fae05b679e3c275ff67eeb?rik=r1DEi75Jc2EEKg&pid=ImgRaw&r=0",
-    imageLabel: "Image Text",
-  },
-];
-
-const posts = [post1, post2 /* post3 */];
+const randomNumber = Math.floor(Math.random() * 3) + 1;
+let posts;
+let mainFeatured;
+let featuredPost = [];
+if (randomNumber === 1) {
+  posts = [post1, post2];
+  mainFeatured = mainFeaturedPost[0];
+  featuredPost = featuredPosts[0];
+}
+if (randomNumber === 2) {
+  posts = [post3, post2];
+  mainFeatured = mainFeaturedPost[1];
+  featuredPost = featuredPosts[1];
+}
+if (randomNumber === 3) {
+  posts = [post4, post2];
+  mainFeatured = mainFeaturedPost[2];
+  featuredPost = featuredPosts[2];
+}
 
 const sidebar = {
   title: "About",
@@ -68,9 +42,9 @@ const Blog = () => {
   return (
     <Container maxWidth="lg" sx={{ paddingTop: "10%" }}>
       <main>
-        <MainFeaturedPost post={mainFeaturedPost} />
+        <MainFeaturedPost post={mainFeatured} />
         <Grid container spacing={4}>
-          {featuredPosts.map((post) => (
+          {featuredPost.map((post) => (
             <FeaturedPost key={post.title} post={post} />
           ))}
         </Grid>

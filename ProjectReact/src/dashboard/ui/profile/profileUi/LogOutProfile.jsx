@@ -13,7 +13,7 @@ const LogOutPro = () => {
     sessionStorage.clear();
     window.scrollTo(0, 0);
     dispatch(authActions.logout());
-    navigate(ROUTES.LOGIN);
+    navigate(ROUTES.HOME);
   };
   return (
     <Fragment>

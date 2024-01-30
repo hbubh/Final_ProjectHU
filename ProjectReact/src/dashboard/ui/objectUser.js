@@ -1,3 +1,4 @@
+import CircularProgress from "@mui/material/CircularProgress";
 const userObj = {
   address: {
     city: "",
@@ -12,20 +13,20 @@ const userObj = {
     url: "",
   },
   name: {
-    first: "",
+    first: <CircularProgress />,
     last: "",
     middle: "",
   },
-  _id: "",
-  createdAt: "",
-  email: "",
-  isAdmin: "",
+  _id: <CircularProgress />,
+  createdAt: <CircularProgress />,
+  email: <CircularProgress />,
+  isAdmin: false,
   isPro: false,
   isBusiness: false,
   myShares: false,
-  phone: "",
-  wallet: "",
-  charged: "",
+  phone: <CircularProgress />,
+  wallet: <CircularProgress />,
+  charged: <CircularProgress />,
 };
 
 const setUserObj = (user) => {
