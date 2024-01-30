@@ -1,0 +1,118 @@
+### GET all users:
+
+GET http://localhost:8080/api/v1/users
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTliZWNjZDA2ZTYxZGUwNmYyYWFhYzEiLCJpc0J1c2luZXNzIjp0cnVlLCJpc1BybyI6dHJ1ZSwiZmlyc3QiOiJBZG1pbiIsImxhc3QiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzA0NzE3Njc2fQ.JJ4uTOvKzkt_NW9t3EVHTrXfqmmUviutWeJdX1zh-OQ
+
+
+
+### Register a user:
+POST http://localhost:8080/api/v1/users
+Content-Type: application/json
+
+{
+  "name": {
+    "first": "inon",
+    "middle": "inon",
+    "last": "Root"
+  },
+  "address": {
+    "street": "ss",
+    "city": "scsc",
+    "country": "ישקאל",
+    "houseNumber": 88
+  },
+  "phone": "0542345678",
+  "email": "noa66@gmail.com",
+  "password": "Inon123@@"
+}
+
+### LOGIN:
+POST http://localhost:8080/api/v1/users/login
+Content-Type: application/json
+
+{
+  "email":"admin@gmail.com",
+  "password":"123456aA!!"
+}
+
+### get user by id/ JWT admin:
+GET http://localhost:8080/api/v1/users/659beccd06e61de06f2aaab8
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTliZWNjZDA2ZTYxZGUwNmYyYWFhYzEiLCJpc0J1c2luZXNzIjp0cnVlLCJpc1BybyI6dHJ1ZSwiZmlyc3QiOiJBZG1pbiIsImxhc3QiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzA0NzE3Njc2fQ.JJ4uTOvKzkt_NW9t3EVHTrXfqmmUviutWeJdX1zh-OQ
+
+
+
+### PUT update user:
+PUT http://localhost:8080/api/v1/users/6582d3517331097ca0abbf6d
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IldheTNlQGJhdGNhdmUuY29tIiwiaWF0IjoxNzAzMDg3MDg1fQ.gxro75_g-jHUJXTRq5wQ8a8c60vopc6EhIsPFH77Bv0
+Content-Type: application/json
+
+{
+  "name": {
+    "first": "Bruce!",
+    "last": "Wayne!"
+  },
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "country": "Israel",
+    "houseNumber": 20,
+    "zip": "12345"
+  },
+  "image": {
+    "alt": "user-profile",
+    "url": "https://picsum.photos/200/300"
+  }
+}
+
+### PATCH update bizz user:
+PATCH  http://localhost:8080/api/v1/users/659beccd06e61de06f2aaab8
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTliZWNjZDA2ZTYxZGUwNmYyYWFhYjgiLCJpc0J1c2luZXNzIjpmYWxzZSwiaXNQcm8iOmZhbHNlLCJmaXJzdCI6Iklub24iLCJsYXN0IjoiRHJvcmkiLCJlbWFpbCI6Iklub25AR21haWwuY29tIiwiaWF0IjoxNzA0NzE4MDA0fQ.rntovhev7HUx-69K3SVjrKg-EkAixMoz4hpeH4dqZg0
+
+
+### DELETE:
+DELETE http://localhost:8080/api/v1/users/6582d2b87331097ca0abbf5d
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTcwMzA3MjUzN30.ISRrCHGef3n-VGmUQvll10lUZo47l6V16SsgTa-W2YY
+
+
+
+### PATCH charge wallet:
+PATCH http://localhost:8080/api/v1/users/wallet/charge
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTllYmM2N2UyMjZlYjQ4ZjllYTg3ZTAiLCJpc0J1c2luZXNzIjp0cnVlLCJpc1BybyI6dHJ1ZSwiZmlyc3QiOiJBZG1pbiIsImxhc3QiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzA0OTAyNDg1fQ.UgD2IyCXNVLgq7eS7V1xTW3XIBZcDIY1N2qMfXVXVBc
+Content-Type: application/json
+
+{
+  "null":"dcd",
+  "email":"admin@gmail.com",
+  "wallet":"6000"
+}
+### PATCH buy shares:
+PATCH http://localhost:8080/api/v1/users/wallet/buyShare
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTliZWNjZDA2ZTYxZGUwNmYyYWFhYjgiLCJpc0J1c2luZXNzIjpmYWxzZSwiaXNQcm8iOmZhbHNlLCJmaXJzdCI6Iklub24iLCJsYXN0IjoiRHJvcmkiLCJlbWFpbCI6Iklub25AR21haWwuY29tIiwiaWF0IjoxNzA0NzE4MDA0fQ.rntovhev7HUx-69K3SVjrKg-EkAixMoz4hpeH4dqZg0
+Content-Type: application/json
+
+{
+  "null":"dcd",
+  "email":"Inon@Gmail.com",
+  "shares":{
+"share":"659ed4770048b32ba8ec0bb1",
+"num":5
+  },
+  "cost":"1000"
+}
+
+
+
+### PATCH sell shares:
+PATCH http://localhost:8080/api/v1/users/wallet/sellShare
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTliZWNjZDA2ZTYxZGUwNmYyYWFhYjgiLCJpc0J1c2luZXNzIjpmYWxzZSwiaXNQcm8iOmZhbHNlLCJmaXJzdCI6Iklub24iLCJsYXN0IjoiRHJvcmkiLCJlbWFpbCI6Iklub25AR21haWwuY29tIiwiaWF0IjoxNzA0NzE4MDA0fQ.rntovhev7HUx-69K3SVjrKg-EkAixMoz4hpeH4dqZg0
+Content-Type: application/json
+
+{
+  "null":"dcd",
+  "email":"inon@Gmail.com",
+  "shares":{
+"share":"659d1f9f3fcf579bf6951638",
+"num":4
+  },
+  "profit":"1000"
+}

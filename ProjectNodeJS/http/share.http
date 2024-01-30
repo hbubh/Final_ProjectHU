@@ -1,0 +1,76 @@
+### Get my-shers:
+GET http://localhost:8080/api/v1/shares/my-shares
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTliZWNjZDA2ZTYxZGUwNmYyYWFhYjgiLCJpc0J1c2luZXNzIjpmYWxzZSwiaXNQcm8iOmZhbHNlLCJmaXJzdCI6Iklub24iLCJsYXN0IjoiRHJvcmkiLCJlbWFpbCI6Iklub25AR21haWwuY29tIiwiaWF0IjoxNzA0NzE4MDA0fQ.rntovhev7HUx-69K3SVjrKg-EkAixMoz4hpeH4dqZg0
+
+
+### Get share by Id:
+GET http://localhost:8080/api/v1/shares/659d058e2c59cf213034257d
+
+### GET all shares:
+
+GET http://localhost:8080/api/v1/shares
+
+### changePrice:
+
+GET http://localhost:8080/api/v1/shares/changeprice
+
+
+### create new shares
+POST http://localhost:8080/api/v1/shares
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTlkMDU4ZTJjNTljZjIxMzAzNDI1NjIiLCJpc0J1c2luZXNzIjp0cnVlLCJpc1BybyI6dHJ1ZSwiZmlyc3QiOiJBZG1pbiIsImxhc3QiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzA0Nzg5NjQxfQ.VeYRqFihKc61MLzoKo9ktRjxwBPK_POhEZQSLnfkZ-U
+Content-Type: application/json
+
+{
+"title":"share1",
+"subtitle":"the share number 1",
+"description":"walla walla walla",
+"phone":"054-8339879",
+"email":"card10@gmail.com",
+"address":{
+  "street": "123 Main St",
+    "city": "Anytown",
+    "country": "Israel",
+    "houseNumber": 20,
+    "zip": "12345"
+}
+}
+
+
+### PUT edit shares:
+PUT http://localhost:8080/api/v1/shares/659d06972c59cf21303425a3
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTlkMDU4ZTJjNTljZjIxMzAzNDI1NjIiLCJpc0J1c2luZXNzIjp0cnVlLCJpc1BybyI6dHJ1ZSwiZmlyc3QiOiJBZG1pbiIsImxhc3QiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzA0Nzg5NjQxfQ.VeYRqFihKc61MLzoKo9ktRjxwBPK_POhEZQSLnfkZ-U
+Content-Type: application/json
+
+{
+  "title": "Inoniiii",
+  "subtitle":"3",
+  "description":"hellooooooo",
+  "web":"www.fsgsf.co.il",
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "country": "Israel",
+    "houseNumber": 20,
+    "zip": "12345"
+  },
+  "image": {
+    "alt": "user-profile",
+    "url": "https://picsum.photos/200/300"
+  },
+  "phone": "050-8123091",
+  "email": "Way@batcave.com"
+}
+
+
+
+### delete share
+
+DELETE   http://localhost:8080/api/v1/shares/659d06972c59cf21303425a3
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTlkMDU4ZTJjNTljZjIxMzAzNDI1NjIiLCJpc0J1c2luZXNzIjp0cnVlLCJpc1BybyI6dHJ1ZSwiZmlyc3QiOiJBZG1pbiIsImxhc3QiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzA0Nzg5NjQxfQ.VeYRqFihKc61MLzoKo9ktRjxwBPK_POhEZQSLnfkZ-U
+
+
+
+### like share - no relevantic
+
+PATCH  http://localhost:8080/api/v1/cards/65831d5c18f994833cc3aa0b
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTcwMzA3MjUzN30.ISRrCHGef3n-VGmUQvll10lUZo47l6V16SsgTa-W2YY
