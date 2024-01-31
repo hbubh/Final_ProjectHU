@@ -2,14 +2,39 @@ import { Typography, Paper, Divider, Box } from "@mui/material";
 import React from "react";
 
 const AboutSplit01 = () => {
+  const [thisColor, setColor] = React.useState("");
+  const handleClick = (e) => {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const minScreenWidth = 1024;
+    const minScreenHeight = 568;
+    if (screenWidth >= minScreenWidth && screenHeight >= minScreenHeight) {
+      const { style } = e.target;
+      if (style.position === "absolute" && style.marginLeft === "-33%") {
+        style.marginLeft = "10%";
+        style.position = "";
+        setColor("");
+      } else {
+        style.marginLeft = "-33%";
+        style.position = "absolute";
+        setColor("aliceblue");
+      }
+    } else {
+      return;
+    }
+  };
+
   return (
     <React.Fragment>
       <Box sx={{ display: { xs: "block", lg: "flex" } }}>
         <Box sx={{ width: { xs: "100%", lg: "40%" } }}>
-          <Typography variant="h4" sx={{ width: "100%" }}>
+          <Typography variant="h4" sx={{ width: "100%", color: thisColor }}>
             <span style={{ fontSize: "1.7rem" }}>(5)</span> Charge-Wallet
           </Typography>
-          <Typography variant="subtitle1" sx={{ width: "100%" }}>
+          <Typography
+            variant="subtitle1"
+            sx={{ width: "100%", color: thisColor }}
+          >
             Before making purchases in the stock market you must load your user
             with money. For this purpose, enter the wallet loading page through
             your home page as a logged in user and fill in the necessary fields
@@ -21,6 +46,7 @@ const AboutSplit01 = () => {
         </Box>
         <Box sx={{ height: "3vh" }} />
         <Box
+          onClick={handleClick}
           sx={{
             width: "60%",
             overflow: "hidden",
@@ -43,10 +69,13 @@ const AboutSplit01 = () => {
       <br />
       <Box sx={{ display: { xs: "block" } }}>
         <Box sx={{ width: { xs: "100%" } }}>
-          <Typography variant="h4" sx={{ width: "100%" }}>
+          <Typography variant="h4" sx={{ width: "100%", color: thisColor }}>
             <span style={{ fontSize: "1.7rem" }}>(5)</span> Start trading!
           </Typography>
-          <Typography variant="subtitle1" sx={{ width: "100%" }}>
+          <Typography
+            variant="subtitle1"
+            sx={{ width: "100%", color: thisColor }}
+          >
             After you are registered and loaded with money, you can start
             purchasing shares for your personal portfolio. When performing a
             buy/sell operation, a window will open requiring filling in relevant
@@ -108,10 +137,13 @@ const AboutSplit01 = () => {
       <br />
       <Box sx={{ display: { xs: "block", lg: "flex" } }}>
         <Box sx={{ width: { xs: "100%", lg: "40%" } }}>
-          <Typography variant="h4" sx={{ width: "100%" }}>
+          <Typography variant="h4" sx={{ width: "100%", color: thisColor }}>
             <span style={{ fontSize: "1.7rem" }}>(5)</span> Portofilio
           </Typography>
-          <Typography variant="subtitle1" sx={{ width: "100%" }}>
+          <Typography
+            variant="subtitle1"
+            sx={{ width: "100%", color: thisColor }}
+          >
             The user page is a page that displays general financial data, all
             the assets available to you and how much money you have claimed so
             far for personal monitoring. <br /> Additionally, at the bottom of
@@ -125,26 +157,42 @@ const AboutSplit01 = () => {
             overflow: "hidden",
           }}
         >
-          <img
-            style={{
-              width: "80%",
-              height: "auto",
-              marginLeft: "10%",
-              boxShadow: "3px 3px 7px",
+          <Box
+            onClick={handleClick}
+            sx={{
+              width: "100%",
+              overflow: "hidden",
             }}
-            src="/assets/images/usercash.png"
-            alt="investor in his mac"
-          />
-          <img
-            style={{
-              width: "80%",
-              height: "auto",
-              marginLeft: "10%",
-              boxShadow: "3px 3px 7px",
+          >
+            <img
+              style={{
+                width: "80%",
+                height: "auto",
+                marginLeft: "10%",
+                boxShadow: "3px 3px 7px",
+              }}
+              src="/assets/images/usercash.png"
+              alt="investor in his mac"
+            />
+          </Box>
+          <Box
+            onClick={handleClick}
+            sx={{
+              width: "100%",
+              overflow: "hidden",
             }}
-            src="/assets/images/userinfo.png"
-            alt="investor in his mac"
-          />
+          >
+            <img
+              style={{
+                width: "80%",
+                height: "auto",
+                marginLeft: "10%",
+                boxShadow: "3px 3px 7px",
+              }}
+              src="/assets/images/userinfo.png"
+              alt="investor in his mac"
+            />
+          </Box>
         </Box>
       </Box>
       <br />

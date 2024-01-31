@@ -18,8 +18,6 @@ const ShareChart = ({ thisShare, setTag, setPrice }) => {
   React.useEffect(() => {
     let change2 = 1 + Math.floor(Math.random() * 10);
     let change = 5 + Math.floor(Math.random() * 10);
-    console.log(change2);
-    console.log(change);
     if (change2 >= 6) {
       setAnalysis(+thisShare.price[1] + change);
       setTag(

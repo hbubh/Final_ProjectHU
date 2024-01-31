@@ -1,12 +1,26 @@
-import { Typography, Paper, Divider, Box } from "@mui/material";
+import { Typography, Divider, Box } from "@mui/material";
 import React from "react";
+import { handleClick1Sx, handleClickSx } from "./setSx";
 
 const AboutSplit = () => {
+  const [thisColor, setColor] = React.useState("");
+  const handleClick = (e) => {
+    handleClickSx(e, setColor);
+  };
+  const handleClick1 = (e) => {
+    handleClick1Sx(e, setColor);
+  };
+
   return (
     <React.Fragment>
       <Typography
         variant="h3"
-        sx={{ width: "100%", textAlign: "center", fontWeight: "300" }}
+        sx={{
+          width: "100%",
+          textAlign: "center",
+          fontWeight: "300",
+          color: thisColor,
+        }}
       >
         So.. Lets Start
       </Typography>
@@ -14,10 +28,13 @@ const AboutSplit = () => {
       <br />
       <Box sx={{ display: { xs: "block", lg: "flex" } }}>
         <Box sx={{ width: { xs: "100%", lg: "40%" } }}>
-          <Typography variant="h4" sx={{ width: "100%" }}>
+          <Typography variant="h4" sx={{ width: "100%", color: thisColor }}>
             <span style={{ fontSize: "1.7rem" }}>(1)</span> Register New-User
           </Typography>
-          <Typography variant="subtitle1" sx={{ width: "100%" }}>
+          <Typography
+            variant="subtitle1"
+            sx={{ width: "100%", color: thisColor }}
+          >
             In order to start working on the site, make an initial registration.{" "}
             <br />
             **Please note: saving the password is necessary for continuing work
@@ -30,6 +47,7 @@ const AboutSplit = () => {
         </Box>
         <Box sx={{ height: "3vh" }} />
         <Box
+          onClick={handleClick}
           sx={{
             width: "60%",
             overflow: "hidden",
@@ -52,16 +70,20 @@ const AboutSplit = () => {
       <br />
       <Box sx={{ display: { xs: "block", lg: "flex" } }}>
         <Box sx={{ width: { xs: "100%", lg: "40%" } }}>
-          <Typography variant="h4" sx={{ width: "100%" }}>
+          <Typography variant="h4" sx={{ width: "100%", color: thisColor }}>
             <span style={{ fontSize: "1.7rem" }}>(2)</span> Log-In
           </Typography>
-          <Typography variant="subtitle1" sx={{ width: "100%" }}>
+          <Typography
+            variant="subtitle1"
+            sx={{ width: "100%", color: thisColor }}
+          >
             After registration you will be taken directly to the login page. On
             this page you must enter the email and password you registered with
           </Typography>
         </Box>
         <Box sx={{ height: "3vh" }} />
         <Box
+          onClick={handleClick}
           sx={{
             width: "60%",
             overflow: "hidden",
@@ -84,10 +106,13 @@ const AboutSplit = () => {
       <br />
       <Box sx={{ display: { xs: "block", lg: "flex" } }}>
         <Box sx={{ width: { xs: "100%", lg: "40%" } }}>
-          <Typography variant="h4" sx={{ width: "100%" }}>
+          <Typography variant="h4" sx={{ width: "100%", color: thisColor }}>
             <span style={{ fontSize: "1.7rem" }}>(3)</span> Dashboard
           </Typography>
-          <Typography variant="subtitle1" sx={{ width: "100%" }}>
+          <Typography
+            variant="subtitle1"
+            sx={{ width: "100%", color: thisColor }}
+          >
             After a successful login you will be taken directly to your home
             page as a logged in user. On this page you can manage all your
             activity on the site and get information about changes and updates
@@ -96,6 +121,7 @@ const AboutSplit = () => {
         </Box>
         <Box sx={{ height: "3vh" }} />
         <Box
+          onClick={handleClick}
           sx={{
             width: "60%",
             overflow: "hidden",
@@ -118,10 +144,13 @@ const AboutSplit = () => {
       <br />
       <Box sx={{ display: { xs: "block" } }}>
         <Box sx={{ width: { xs: "100%" } }}>
-          <Typography variant="h4" sx={{ width: "100%" }}>
+          <Typography variant="h4" sx={{ width: "100%", color: thisColor }}>
             <span style={{ fontSize: "1.7rem" }}>(4)</span> Site navigation
           </Typography>
-          <Typography variant="subtitle1" sx={{ width: "100%" }}>
+          <Typography
+            variant="subtitle1"
+            sx={{ width: "100%", color: thisColor }}
+          >
             As a logged-in user, there are two navigation systems in the
             application: <br /> The first is the main bar that is available
             every time you click the "SIDE MENU" button. <br /> In this
@@ -151,7 +180,7 @@ const AboutSplit = () => {
             display: "flex",
           }}
         >
-          <Box sx={{ width: "20%" }}>
+          <Box onClick={handleClick1} sx={{ width: "20%" }}>
             <img
               style={{
                 width: "100%",
@@ -162,7 +191,7 @@ const AboutSplit = () => {
               alt="investor in his mac"
             />
           </Box>
-          <Box sx={{ width: "20%", ml: "10%" }}>
+          <Box onClick={handleClick1} sx={{ width: "20%", ml: "10%" }}>
             <img
               style={{
                 width: "100%",

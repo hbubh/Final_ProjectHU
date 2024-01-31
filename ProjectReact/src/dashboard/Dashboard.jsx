@@ -92,7 +92,7 @@ const DashboardT = () => {
 
           <Divider sx={{ my: 1 }} />
           {thisUser.myShares ? (
-            thisUser.isBusiness || thisUser.isPro ? null : (
+            !thisUser.isBusiness || !thisUser.isPro ? (
               <React.Fragment>
                 <ListSubheader component="div" inset>
                   Upgrade's Offer
@@ -100,7 +100,7 @@ const DashboardT = () => {
                 {thisUser.isPro ? null : proList}
                 {thisUser.isBusiness ? null : buzzList}
               </React.Fragment>
-            )
+            ) : null
           ) : (
             <></>
           )}

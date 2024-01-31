@@ -10,19 +10,20 @@ import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
 import ROUTES from "../../routes/ROUTES";
 import featuredPosts from "../../pages/news/ui/subMain";
-
+const randomNumber = Math.floor(Math.random() * 3) + 1;
+let featuredPost = [];
 export default function MediaCard({ thisTheme }) {
-  const randomNumber = Math.floor(Math.random() * 3) + 1;
-  let featuredPost = [];
-  if (randomNumber === 1) {
-    featuredPost = featuredPosts[0];
-  }
-  if (randomNumber === 2) {
-    featuredPost = featuredPosts[1];
-  }
-  if (randomNumber === 3) {
-    featuredPost = featuredPosts[2];
-  }
+  React.useEffect(() => {
+    if (randomNumber === 1) {
+      featuredPost = featuredPosts[0];
+    }
+    if (randomNumber === 2) {
+      featuredPost = featuredPosts[1];
+    }
+    if (randomNumber === 3) {
+      featuredPost = featuredPosts[2];
+    }
+  }, []);
 
   return (
     <Grid container spacing={3}>
