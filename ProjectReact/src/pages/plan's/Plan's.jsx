@@ -134,7 +134,7 @@ const Plans = () => {
                   }}
                   sx={tier.sxHead}
                 />
-                <CardContent sx={{ bgcolor: tier.bgcContent }}>
+                <CardContent sx={{ bgcolor: tier.bgcContent, color: "black" }}>
                   <Box
                     sx={{
                       display: "flex",
@@ -143,11 +143,7 @@ const Plans = () => {
                       mb: 2,
                     }}
                   >
-                    <Typography
-                      component="h2"
-                      variant="h3"
-                      color="text.primary"
-                    >
+                    <Typography component="h2" variant="h3" color="black">
                       ${tier.price}
                     </Typography>
                     <Typography variant="h6" color="text.secondary">
