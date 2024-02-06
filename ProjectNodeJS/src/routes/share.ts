@@ -57,17 +57,6 @@ sharesRouter.get("/my-shares", validateToken, async (req, res, next) => {
   }
 });
 
-/* //GET share by id
-sharesRouter.get("/:id", async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const share = (await Share.findById(id)) as IShare;
-    res.json(share);
-  } catch (e) {
-    next(e);
-  }
-}); */
-
 //get a specific share
 sharesRouter.get("/:id", async (req, res, next) => {
   try {
@@ -109,27 +98,6 @@ sharesRouter.put("/:id", isUserShare, async (req, res, next) => {
   }
 });
 
-/* //update owners Buy
-sharesRouter.patch(
-  "/owners/userbuy",
-  isUserByEmail,
-  isUserOrNew,
-  async (req, res, next) => {
-    try {
-      const userId = req.user._id;
-      const saved = await Share.findOneAndUpdate(
-        { _id: req.params.id },
-        { $push: { likes: userId } },
-        {
-          new: true,
-        }
-      );
-      res.json({ saved });
-    } catch (e) {
-      next(e);
-    }
-  }
-); */
 
 // register share
 sharesRouter.post(
