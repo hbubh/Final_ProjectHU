@@ -49,7 +49,7 @@ A Business user who has not upgraded to a Pro user cannot enjoy the tools open t
 
   
 
-Additionally, there is an ADMIN user who is the owner of all stocks not created by other business users and can access an additional panel displaying all users on the site. The ADMIN can edit Business users, edit their personal data, and if necessary, delete a user (but cannot delete themselves). A request has been made to the application builder not to delete users they did not create. ADMIN user details for review of capabilities: email – admin@gmail.com, password – 123456aA!
+Additionally, there is an ADMIN user who is the owner of all stocks not created by other business users and can access an additional panel displaying all users on the site. The ADMIN can edit Business users, edit their personal data, and if necessary, delete a user (but cannot delete themselves). A request has been made to the application users not to delete users they did not create. ADMIN user details for review of capabilities: email – admin@gmail.com, password – 123456aA!
 Whether you are logged in or logged out, as soon as you launch the application, a general navigation bar is available to navigate between main pages. Among them is a Privacy Policy page, which should be read before using the application. Additionally, there is an About page. The About page details the available interfaces and tools for the user. This page will greatly help you understand the system as a client and the capabilities and tools available to you on the site. I wish you a pleasant experience. 
 
   
