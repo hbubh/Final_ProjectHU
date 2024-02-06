@@ -22,12 +22,15 @@ import Admin from "../dashboard/ui/admin/Admin";
 import AuthGuard from "../Guard/AuthGuard";
 import BizzGuard from "../Guard/BizGuard";
 import AdminGuard from "../Guard/AdminGuard";
+import NotFound from "../pages/404/NotFound";
 
 const Router = () => {
   const loggedIn = useSelector((bigPie) => bigPie.authSlice.loggedIn);
   return (
     <Routes>
       <Route path={ROUTES.PLANS} element={<Plans />} />
+      <Route path={ROUTES.NOTFOUND} element={<NotFound />} />
+      <Route path="*" element={<NotFound />} />
       <Route path={ROUTES.SHARES} element={<SharesCenter />} />
       <Route path={ROUTES.NEWS} element={<Blog />} />
       <Route path={ROUTES.POLICY} element={<Policy />} />

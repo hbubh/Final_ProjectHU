@@ -18,6 +18,7 @@ const ROUTES = {
   MYSHARES: "/my-shares",
   EDIT: "/edit",
   EDITPROFILE: "/edit-profile",
+  NOTFOUND: "/404",
 };
 
 export default ROUTES;
