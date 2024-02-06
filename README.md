@@ -1,4 +1,4 @@
-## Welcome to my HU,College Final Project, a simulated stock market trading application. 
+## Welcome to my HackerU_College Final Project, a simulated stock market trading application. 
 
   
 
