@@ -83,7 +83,10 @@ const ResponsiveAppBar = ({ themeChange, thisTheme }) => {
         zIndex: "15",
       }}
     >
-      <AppBar position="static" sx={{ bgcolor: "black", width: "100vw" }}>
+      <AppBar
+        position="static"
+        sx={{ bgcolor: thisTheme ? "black" : "black", width: "100vw" }}
+      >
         <Toolbar>
           <Box sx={{ width: "25%" }} />
           <SlideNav />

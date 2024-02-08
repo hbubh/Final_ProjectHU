@@ -1,5 +1,6 @@
 import * as React from "react";
 import BottomNavigation from "@mui/material/BottomNavigation";
+import Box from "@mui/material/Box";
 import PolicyIcon from "@mui/icons-material/Policy";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import InfoIcon from "@mui/icons-material/Info";
@@ -40,26 +41,43 @@ const FooterComponent = () => {
         opacity: "0.8",
         width: "100%",
         height: "auto",
-        position: "relative",
         bottom: "0",
         display: "flex",
-        justifyContent: "space-evenly",
+        justifyContent: "space-around",
       }}
       value={value}
       onChange={handleChange}
     >
       <BottomNavigationAction value="HOME" label="Home" icon={<HomeIcon />} />
+
       <BottomNavigationAction value="ABOUT" label="About" icon={<InfoIcon />} />
+
       <BottomNavigationAction
         label="Policy"
         value="POLICY"
         icon={<PolicyIcon />}
       />
+
       <BottomNavigationAction
         value="SHARES"
         label="Shares"
         icon={<StackedLineChartIcon />}
       />
+      <Box
+        sx={{
+          width: "30%",
+          border: "1px solid black",
+          bgcolor: "black",
+          color: "darkgray",
+          textAlign: "center",
+          padding: "2%",
+          fontWeight: "300",
+          fontSize: "1rem",
+        }}
+      >
+        All Right Reserved - InvestionsHouse. <br />{" "}
+        <span style={{ fontSize: "0.8rem" }}>by InonGenish</span>
+      </Box>
     </BottomNavigation>
   );
 };

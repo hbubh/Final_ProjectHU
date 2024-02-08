@@ -114,7 +114,7 @@ const DashboardT = () => {
               ? theme.palette.grey[100]
               : theme.palette.grey[900],
           flexGrow: 1,
-          height: "100vh",
+          height: "auto",
           overflow: "auto",
           backgroundImage:
             "url('https://th.bing.com/th/id/R.e814906d2edc29907cd6e09af3d8750c?rik=PpFSes7m7KTb2Q&pid=ImgRaw&r=0')",
