@@ -133,6 +133,7 @@ const BuzzInvester = () => {
             }}
             margin="normal"
             required
+            variant="filled"
             fullWidth
             name="email"
             label="Email"

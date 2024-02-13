@@ -38,7 +38,7 @@ const MainTitle = () => {
         sx={{
           bgcolor: "black",
           width: { md: "100%", lg: "80%" },
-          height: "100%",
+          height: "150%",
           position: "absolute",
           mt: "110%",
           overflow: "hidden",
@@ -48,7 +48,7 @@ const MainTitle = () => {
         sx={{
           bgcolor: "black",
           width: "100%",
-          height: { md: "125%", lg: "130%" },
+          height: { md: "160%", lg: "160%" },
           position: "absolute",
           mt: { md: "210%", lg: "158%" },
         }}
@@ -59,7 +59,7 @@ const MainTitle = () => {
           width: "100%",
           height: { md: "150%", lg: "300%" },
           position: "absolute",
-          mt: { md: "345%", lg: "220%" },
+          mt: { md: "345%", lg: "230%" },
         }}
       />
       <ProSecMain />
@@ -83,7 +83,7 @@ const MainTitle = () => {
         sx={{
           width: { md: "120%", lg: "100%" },
           position: "sticky",
-          height: { xs: "auto", lg: "170%" },
+          height: { xs: "auto", lg: "180%" },
           ml: "-20%",
           transition: "all 1s",
           transform: "skew(00deg, 30deg)",

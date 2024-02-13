@@ -1,4 +1,5 @@
 import * as React from "react";
+import Typography from "@mui/material/Typography";
 import {
   ComposedChart,
   Line,
@@ -16,6 +17,7 @@ import axios from "axios";
 const Chart = ({ thisUser }) => {
   const [myShares, setShares] = React.useState();
   const [mySharesCosts, setSharesCosts] = React.useState(0);
+  const [thisTypo, setTypo] = React.useState("");
   const [thisPrices1, setPrices1] = React.useState(0);
   const [thisPrices2, setPrices2] = React.useState(0);
   React.useEffect(() => {
@@ -48,6 +50,13 @@ const Chart = ({ thisUser }) => {
       }
     }
   }, [myShares]);
+  React.useEffect(() => {
+    if (mySharesCosts === 0) {
+      setTypo("*Stocks not found for this User");
+    } else {
+      setTypo("");
+    }
+  }, [mySharesCosts]);
 
   const data = [
     {
@@ -73,8 +82,11 @@ const Chart = ({ thisUser }) => {
     <React.Fragment>
       <Title>
         {" "}
-        <span style={{ color: "black" }}>Today Share's Value</span>
+        <span style={{ color: "black" }}>Today My Share's Value</span>
       </Title>
+      <Typography sx={{ opacity: "0.7" }} variant="subtitle3">
+        {thisTypo}
+      </Typography>
       <ResponsiveContainer width="100%" height="100%">
         <ComposedChart
           width={500}

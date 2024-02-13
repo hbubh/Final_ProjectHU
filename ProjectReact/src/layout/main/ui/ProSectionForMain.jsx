@@ -19,7 +19,7 @@ const ProSecMain = () => {
     <Box
       sx={{
         position: "absolute",
-        marginTop: { md: "260%", lg: "165%" },
+        marginTop: { md: "260%", lg: "175%" },
         width: "100%",
       }}
     >

@@ -97,10 +97,22 @@ const ResponsiveAppBar = ({ themeChange, thisTheme }) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            <NavLink to={ROUTES.HOME}>
+            <NavLink
+              to={ROUTES.HOME}
+              style={{ textDecoration: "none", color: "darkgray" }}
+            >
               <StackedLineChartIcon
                 sx={{ fontSize: "2.8rem", mt: "1%", color: "grey" }}
               />
+              <span
+                style={{
+                  fontFamily: "inherit",
+                  fontSize: "0.6rem",
+                  marginLeft: "-2%",
+                }}
+              >
+                Home
+              </span>
             </NavLink>
           </Typography>
           <Box sx={{}}>

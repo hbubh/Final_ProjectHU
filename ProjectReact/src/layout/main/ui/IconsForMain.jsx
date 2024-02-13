@@ -17,7 +17,7 @@ const IconsMain = ({ conOP }) => {
         mt: "32%",
         transition: "all 1s",
         position: "absolute",
-        opacity: "0.3",
+        opacity: "0.5",
         display: { md: "none", lg: "block" },
       }}
     >

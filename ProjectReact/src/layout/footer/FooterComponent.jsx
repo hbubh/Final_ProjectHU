@@ -12,6 +12,14 @@ const FooterComponent = () => {
   const [value, setValue] = React.useState("home");
   const navigate = useNavigate();
 
+  const email = "inonGenish@outlook.co.il";
+  const subject = "Contact";
+  const body = "Hello, I want to get in touch with you About:";
+
+  const mailToLink = `mailto:${email}?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(body)}`;
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
     window.scroll(0, 0);
@@ -76,7 +84,19 @@ const FooterComponent = () => {
         }}
       >
         All Right Reserved - InvestionsHouse. <br />{" "}
-        <span style={{ fontSize: "0.8rem" }}>by InonGenish</span>
+        <span style={{ fontSize: "0.8rem" }}>
+          by InonGenish <br />
+          <a
+            style={{
+              textDecoration: "none",
+              color: "white",
+              fontWeight: "bold",
+            }}
+            href={mailToLink}
+          >
+            - Contact Us -
+          </a>
+        </span>
       </Box>
     </BottomNavigation>
   );

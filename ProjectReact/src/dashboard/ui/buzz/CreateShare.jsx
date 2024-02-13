@@ -41,7 +41,10 @@ const CreateShare = () => {
         variant="body1"
         sx={{ mb: 1, padding: "3px", ml: "14px", textAlign: "center" }}
       >
-        Put a new values in the correct input
+        Put a new values in the correct input <br />
+        <span style={{ fontWeight: "300", fontSize: "0.8rem" }}>
+          *All shares start at $300 value
+        </span>{" "}
       </Typography>
       <Divider sx={{ mb: 3 }} />
       <Grid container flexDirection={"column"} spacing={2}>

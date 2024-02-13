@@ -105,13 +105,14 @@ const OrderWindow = ({ myData, y, ClickX }) => {
       <Box
         /*  bgcolor={thisTheme ? "grey" : "darkgray"} */
 
-        color={thisTheme ? "black" : "black"}
+        color={thisTheme ? "white" : "white"}
         sx={{
           width: "100%",
           padding: "10%",
           borderRadius: "20px",
           paddingTop: "2%",
-          backgroundImage: "url('https://wallpapercave.com/wp/wp3589952.jpg')",
+          backgroundImage:
+            "url('https://static.twentyoverten.com/5d4b084639d62f73a1d95a45/myOokoKjoa/market-background.jpg')",
           backgroundSize: "cover",
         }}
       >
@@ -131,7 +132,14 @@ const OrderWindow = ({ myData, y, ClickX }) => {
         </Typography>
         <Box sx={{ height: { xs: "2vh", lg: "5vh" } }} />
         <Box display={"flex"} sx={{ boxSizing: "border-box" }}>
-          <Box sx={{ width: "60%" }}>
+          <Box
+            sx={{
+              width: "55%",
+              bgcolor: "rgb(0,0,0,0.7)",
+              padding: "3%",
+              ml: "-3%",
+            }}
+          >
             <Typography variant="subtitle3" sx={{ width: "100%" }}>
               • Share:{" "}
               <span style={{ fontWeight: "bold" }}>{myData.title}</span> <br />•
@@ -151,8 +159,10 @@ const OrderWindow = ({ myData, y, ClickX }) => {
             <TextField
               sx={{
                 width: "95%",
+                bgcolor: "darkgray",
               }}
               margin="normal"
+              variant="filled"
               required
               fullWidth
               name="pcs"
@@ -166,8 +176,10 @@ const OrderWindow = ({ myData, y, ClickX }) => {
             <TextField
               sx={{
                 width: "95%",
+                bgcolor: "darkgray",
               }}
               margin="normal"
+              variant="filled"
               required
               fullWidth
               name="email"
@@ -199,7 +211,7 @@ const OrderWindow = ({ myData, y, ClickX }) => {
               onClick={handleClickOrder}
               disabled={disAble}
               variant="contained"
-              sx={{}}
+              sx={{ bgcolor: "white", color: "black" }}
             >
               ORDER!
             </Button>
@@ -207,6 +219,7 @@ const OrderWindow = ({ myData, y, ClickX }) => {
           <Box
             sx={{
               width: "40%",
+              ml: "3%",
             }}
           >
             <img

@@ -71,7 +71,7 @@ const Orders = ({ thisUser }) => {
   return (
     <React.Fragment>
       {thisTrue2 ? <ShareCardsOrders myData={myData} ClickX={ClickX} /> : <></>}
-      <Title>My stock portfolio</Title>
+      <Title>My stock portfolio / FAV</Title>
       <Table size="small" sx={{ opacity: thisOP }}>
         <TableHead>
           <TableRow>
@@ -111,7 +111,7 @@ const Orders = ({ thisUser }) => {
       </Table>
       <Link to={ROUTES.SHARES} style={{ textDecoration: "none" }}>
         <ListSubheader component="div" inset sx={{ color: "maroon" }}>
-          Click here to: Creating a new buy/sell order
+          Click here to Creating a new buy/sell order
         </ListSubheader>
       </Link>
     </React.Fragment>

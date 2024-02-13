@@ -1,22 +1,11 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import { Button, Box, Typography, Grid } from "@mui/material";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import Stack from "@mui/material/Stack";
-import LinearProgress from "@mui/material/LinearProgress";
-import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import TableHotShares from "./ui/TableHotForCenter";
-import TableNewShares from "./ui/TableNewForCenter";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import OrderWindow from "./ui/OrderWindow";
-import AnalysisWindow from "./ui/AnalysisWindow";
 import useQueryParams from "../../hooks/UseQuery";
-import ShareCards from "./ui/SharesCard";
+import MainShare from "./ui/MainShare";
 
 const SharesCenter = () => {
   const [thisShares, setShares] = React.useState([]);
@@ -194,109 +183,25 @@ const SharesCenter = () => {
   };
 
   return (
-    <Box paddingTop={"3%"} paddingBottom={"3%"}>
-      {thisTrue ? <OrderWindow myData={myData} y={y} ClickX={ClickX} /> : <></>}
-      {thisTrue1 ? <AnalysisWindow myData={myData} ClickX={ClickX} /> : <></>}
-      {thisTrue2 ? <ShareCards myData={myData} ClickX={ClickX} /> : <></>}
-      <TableContainer
-        sx={{
-          width: "100%",
-          opacity: thisOP,
-          transition: "all 1s",
-        }}
-      >
-        <Typography
-          variant="h4"
-          sx={{
-            color: "white",
-            bgcolor: "black",
-            width: "100%",
-            textAlign: "center",
-            fontWeight: "600",
-            padding: "2%",
-            fontFamily: "-moz-initial",
-          }}
-        >
-          SHARE - CENTER
-        </Typography>
-
-        <Table sx={{ maxWidth: "100%" }}>
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Symbol</StyledTableCell>
-              <StyledTableCell align="center">Opening</StyledTableCell>
-              <StyledTableCell align="center">Value</StyledTableCell>
-              <StyledTableCell align="center">Analysis</StyledTableCell>
-              <StyledTableCell align="center">Hold</StyledTableCell>
-              <StyledTableCell align="center">Order</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row._id}>
-                <StyledTableCell component="th" scope="row">
-                  <Button
-                    variant="text"
-                    disabled={!loggedIn}
-                    onClick={handleShareScreen}
-                    sx={{ color: "darkblue", textShadow: "13px 13px 9px" }}
-                    value={row._id}
-                  >
-                    {row.name}
-                  </Button>
-                </StyledTableCell>
-                <StyledTableCell align="center">${row.open}</StyledTableCell>
-                <StyledTableCellValue
-                  align="center"
-                  sx={{ color: row.thisColor, fontWeight: "bold" }}
-                >
-                  ${row.value}
-                  <Stack sx={{ width: "100%", color: "grey.500" }} spacing={2}>
-                    <LinearProgress color={row.LineStatus} />
-                  </Stack>
-                </StyledTableCellValue>
-                <StyledTableCell align="center">
-                  {userData && userData.isPro ? (
-                    <Button
-                      variant="outlined"
-                      onClick={handleAnalysis}
-                      value={row._id}
-                    >
-                      Watch Analysis
-                    </Button>
-                  ) : (
-                    "For InvesterPro"
-                  )}
-                </StyledTableCell>
-                <StyledTableCell align="center">{row.holds}</StyledTableCell>
-                <StyledTableCell align="center">
-                  <Button
-                    variant="outlined"
-                    onClick={handleOrder}
-                    disabled={thisAble}
-                    value={row._id}
-                  >
-                    Buy.
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    onClick={handleOrder}
-                    disabled={thisAble}
-                    value={row._id}
-                  >
-                    Sell
-                  </Button>
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <Box display="flex">
-        <TableHotShares rows={rows} handleOrder={handleOrder} thisOP={thisOP} />
-        <TableNewShares rows={rows} handleOrder={handleOrder} thisOP={thisOP} />
-      </Box>
-    </Box>
+    <MainShare
+      thisTrue={thisTrue}
+      myData={myData}
+      y={y}
+      ClickX={ClickX}
+      thisTrue1={thisTrue1}
+      thisTrue2={thisTrue2}
+      thisOP={thisOP}
+      rows={rows}
+      loggedIn={loggedIn}
+      handleShareScreen={handleShareScreen}
+      userData={userData}
+      StyledTableCellValue={StyledTableCellValue}
+      StyledTableCell={StyledTableCell}
+      StyledTableRow={StyledTableRow}
+      handleAnalysis={handleAnalysis}
+      handleOrder={handleOrder}
+      thisAble={thisAble}
+    />
   );
 };
 

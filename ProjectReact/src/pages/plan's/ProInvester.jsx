@@ -137,6 +137,7 @@ const ProInvester = () => {
             name="email"
             label="Email"
             type="email"
+            variant="filled"
             id="email"
             autoComplete="current-email"
             value={inputEmail}

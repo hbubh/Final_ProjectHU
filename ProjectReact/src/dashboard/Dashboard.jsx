@@ -31,7 +31,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="white" align="center" {...props}>
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="#">
         INVESTIONS-HOUSE
       </Link>{" "}
       {new Date().getFullYear()}
@@ -117,7 +117,7 @@ const DashboardT = () => {
           height: "auto",
           overflow: "auto",
           backgroundImage:
-            "url('https://th.bing.com/th/id/R.e814906d2edc29907cd6e09af3d8750c?rik=PpFSes7m7KTb2Q&pid=ImgRaw&r=0')",
+            "url('https://th.bing.com/th/id/R.8891c6bf8a3d6858afb971682b569d89?rik=RraR88Uarl07vQ&riu=http%3a%2f%2fwww.sapphirerecruiters.com%2fwp-content%2fuploads%2f2019%2f04%2fsapphire-recruiters-slide1.jpg&ehk=P1ZbmynDTXq7y%2bRD2DWh1EkxCrWTnaLHbeWfOxOQKXQ%3d&risl=&pid=ImgRaw&r=0')",
           backgroundSize: "cover",
         }}
       >
@@ -132,7 +132,7 @@ const DashboardT = () => {
           <Typography
             variant="h2"
             sx={{
-              color: thisTheme ? "black" : "white",
+              color: thisTheme ? "black" : "navy",
               textAlign: "center",
               padding: "20px",
               fontSize: { xs: "2.5rem" },

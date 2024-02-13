@@ -10,7 +10,7 @@ const GaleryMain = () => {
   return (
     <Box
       sx={{
-        mt: { xs: "0", lg: "-10%" },
+        mt: { xs: "0", lg: "-7%" },
         width: "100%",
         transform: "skew(00deg, -30deg)",
         ml: "28%",

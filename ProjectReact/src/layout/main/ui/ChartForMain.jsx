@@ -62,7 +62,7 @@ export default class Example extends PureComponent {
         sx={{
           width: "50%",
           height: { md: "20%", lg: "50%" },
-          marginTop: { md: "190%", lg: "130%" },
+          marginTop: { md: "190%", lg: "140%" },
           position: "absolute",
         }}
       >
@@ -77,7 +77,6 @@ export default class Example extends PureComponent {
         >
           <Typography variant="h3">Our Tools</Typography>
         </Box>
-
         <ResponsiveContainer
           width="110%"
           height="120%"

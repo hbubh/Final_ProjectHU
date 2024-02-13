@@ -24,7 +24,7 @@ const ExpandMore = styled((props) => {
 
 export default function ShareComponent({ inputsValue }) {
   const [expanded, setExpanded] = React.useState(false);
-
+  const price = inputsValue.price;
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -60,7 +60,7 @@ export default function ShareComponent({ inputsValue }) {
         <span style={{ fontWeight: "500", borderBottom: "1px solid black" }}>
           Tag Price:
         </span>{" "}
-        300$
+        {price}$
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
@@ -118,9 +118,6 @@ export default function ShareComponent({ inputsValue }) {
             </span>{" "}
             {inputsValue.houseNumber} <br />
           </Typography>
-          <span style={{ fontWeight: "300", fontSize: "0.8rem" }}>
-            *All shares start at $300 value
-          </span>{" "}
         </CardContent>
       </Collapse>
     </Card>
