@@ -22,6 +22,7 @@ import { AppError } from "../error/appError";
 import { log } from "console";
 import { uniqueEmail } from "../middleware/uniqueEmail";
 import { deleteUserShare } from "../middleware/deleteUserShares";
+import { Share } from "../database/model/share";
 const usersRouter = Router();
 
 //get all users Admin
@@ -194,6 +195,39 @@ usersRouter.patch(
     }
   }
 );
+
+//updates shares likes by user
+usersRouter.patch("/likeShare/:id", async (req, res, next) => {
+  try {
+    let findLike = false;
+    const { id } = req.params;
+    const { shareId } = req.body;
+    const share = await Share.findById(shareId);
+    const user = await User.findById(id);
+    for (let i = 0; i < user.myLikes.length; i++) {
+      if (user.myLikes[i].shareId == shareId) {
+        user.myLikes.splice(i, 1);
+        findLike = true;
+        i--;
+      }
+    }
+    if (!findLike) {
+      const shareObj = { shareId: shareId, value: share.price[1] };
+      user.myLikes.push(shareObj);
+    }
+    const saved = await User.findByIdAndUpdate(
+      { _id: id },
+      { $set: { myLikes: user.myLikes } },
+      {
+        new: true,
+      }
+    );
+    res.json({ saved });
+  } catch (e) {
+    next(e);
+  }
+});
+
 //sell shares by user
 usersRouter.patch(
   "/wallet/sellShare",

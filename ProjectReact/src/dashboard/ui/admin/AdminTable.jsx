@@ -10,9 +10,10 @@ import TableRow from "@mui/material/TableRow";
 import AdminSetBuz from "./AdminSetBuz";
 import AdminSetDelete from "./AdminSetDelete";
 import AdminSetEdit from "./AdminSetEdit";
+import AdminSetPro from "./AdminSetPro";
 
 const columns = [
-  { id: "_id", label: "ID", minWidth: 180 },
+  { id: "_id", label: "ID", minWidth: 150 },
   { id: "first", label: "Name", minWidth: 150 },
   {
     id: "email",
@@ -36,6 +37,13 @@ const columns = [
     format: (value) => value.toFixed(2),
   },
   {
+    id: "isPro",
+    label: "Pro Plan",
+    minWidth: 90,
+    align: "right",
+    format: (value) => value.toFixed(2),
+  },
+  {
     id: "createdAt",
     label: "Created At",
     minWidth: 200,
@@ -51,14 +59,27 @@ const AdminTable = ({ data, thisDis, setDis }) => {
   }, []);
   const arr2 = [];
 
-  const createData = (_id, first, email, phone, isBusiness, createdAt) => {
-    return { _id, first, email, phone, isBusiness, createdAt };
+  const createData = (
+    _id,
+    first,
+    email,
+    phone,
+    isBusiness,
+    isPro,
+    createdAt
+  ) => {
+    return { _id, first, email, phone, isBusiness, isPro, createdAt };
   };
   for (let user of data) {
     if (user.isBusiness === false) {
       user.isBusiness = "No";
     } else if (user.isBusiness === true) {
       user.isBusiness = "Yes";
+    }
+    if (user.isPro === false) {
+      user.isPro = "No";
+    } else if (user.isPro === true) {
+      user.isPro = "Yes";
     }
     arr2.push(
       createData(
@@ -67,6 +88,7 @@ const AdminTable = ({ data, thisDis, setDis }) => {
         user.email,
         user.phone,
         user.isBusiness,
+        user.isPro,
         user.createdAt
       )
     );
@@ -156,6 +178,7 @@ const AdminTable = ({ data, thisDis, setDis }) => {
         />
       </TableContainer>
       <AdminSetBuz setDis={setDis} thisDis={thisDis} />
+      <AdminSetPro setDis={setDis} thisDis={thisDis} />
       <AdminSetEdit setDis={setDis} thisDis={thisDis} />
       <AdminSetDelete setDis={setDis} thisDis={thisDis} />
     </Paper>

@@ -9,7 +9,6 @@ import { isValidObjectId } from "mongoose";
 const isUser: RequestHandler = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id);
 
     const valid = isValidObjectId(id);
     if (!valid) {

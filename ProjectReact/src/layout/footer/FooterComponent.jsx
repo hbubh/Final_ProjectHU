@@ -42,35 +42,41 @@ const FooterComponent = () => {
   };
 
   return (
-    <BottomNavigation
-      sx={{
-        backgroundColor: "darkgray",
-        boxShadow: "-3px 0px 5px",
-        opacity: "0.8",
-        width: "100%",
-        height: "auto",
-        bottom: "0",
-        display: "flex",
-        justifyContent: "space-around",
-      }}
-      value={value}
-      onChange={handleChange}
-    >
-      <BottomNavigationAction value="HOME" label="Home" icon={<HomeIcon />} />
+    <Box sx={{ display: "flex" }}>
+      <BottomNavigation
+        sx={{
+          backgroundColor: "darkgray",
+          boxShadow: "-3px 0px 5px",
+          opacity: "0.8",
+          width: "70%",
+          height: "auto",
+          bottom: "0",
+          display: "flex",
+          justifyContent: "space-around",
+        }}
+        value={value}
+        onChange={handleChange}
+      >
+        <BottomNavigationAction value="HOME" label="Home" icon={<HomeIcon />} />
 
-      <BottomNavigationAction value="ABOUT" label="About" icon={<InfoIcon />} />
+        <BottomNavigationAction
+          value="ABOUT"
+          label="About"
+          icon={<InfoIcon />}
+        />
 
-      <BottomNavigationAction
-        label="Policy"
-        value="POLICY"
-        icon={<PolicyIcon />}
-      />
+        <BottomNavigationAction
+          label="Policy"
+          value="POLICY"
+          icon={<PolicyIcon />}
+        />
 
-      <BottomNavigationAction
-        value="SHARES"
-        label="Shares"
-        icon={<StackedLineChartIcon />}
-      />
+        <BottomNavigationAction
+          value="SHARES"
+          label="Shares"
+          icon={<StackedLineChartIcon />}
+        />
+      </BottomNavigation>
       <Box
         sx={{
           width: "30%",
@@ -98,7 +104,7 @@ const FooterComponent = () => {
           </a>
         </span>
       </Box>
-    </BottomNavigation>
+    </Box>
   );
 };
 export default FooterComponent;

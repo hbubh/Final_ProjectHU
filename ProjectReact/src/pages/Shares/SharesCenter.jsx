@@ -123,6 +123,7 @@ const SharesCenter = () => {
   let thisColor = "black";
   const createData = (name, open, value, _id, owners, createdAt, userId) => {
     let holds = 0;
+    let like = false;
     if (value >= open) {
       thisColor = "green";
       LineStatus = "success";
@@ -146,6 +147,7 @@ const SharesCenter = () => {
       createdAt,
       owners,
       userId,
+      like,
     };
   };
   const rows = [];

@@ -7,10 +7,9 @@ const performActionIfHourPassed = () => {
     parseInt(localStorage.getItem("lastActionTime"), 10) || 0;
 
   // בדיקה האם עברה שעה מאז הפעולה האחרונה
-  const oneHourInMillis = 1 * 60 * 1000; // מילימי-שניות בשעה
+  const oneHourInMillis = 30 * 60 * 1000; // מילימי-שניות בשעה
   if (currentTime - lastActionTime >= oneHourInMillis) {
     // ביצוע הפעולה
-    console.log("ביצוע פעולה...");
     doIt = true;
     // שמירת הזמן הנוכחי כזמן אחרון שבו בוצעה פעולה
     localStorage.setItem("lastActionTime", currentTime.toString());

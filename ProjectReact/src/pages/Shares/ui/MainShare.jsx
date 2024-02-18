@@ -4,13 +4,16 @@ import OrderWindow from "./OrderWindow";
 import ShareCards from "./SharesCard";
 import TableHotShares from "./TableHotForCenter";
 import Table from "@mui/material/Table";
+import { toast } from "react-toastify";
 import Stack from "@mui/material/Stack";
 import LinearProgress from "@mui/material/LinearProgress";
+import axios from "axios";
 import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableNewShares from "./TableNewForCenter";
+import React from "react";
 
 const MainShare = ({
   thisTrue,
@@ -31,6 +34,58 @@ const MainShare = ({
   handleOrder,
   thisAble,
 }) => {
+  const [reload, setReload] = React.useState(true);
+  const [reload1, setReload1] = React.useState(true);
+  React.useEffect(() => {
+    if (!userData || !rows.length) return;
+    axios
+      .get("/users/" + userData._id)
+      .then(({ data }) => {
+        const { user } = data;
+        console.log(user.myLikes);
+        for (let i of rows) {
+          for (let z of user.myLikes) {
+            if (i._id === z.shareId) {
+              i.like = true;
+            }
+          }
+        }
+        setReload1((state) => !state);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+  }, [userData, rows, reload]);
+
+  React.useEffect(() => {
+    if (reload1) return;
+    setReload((state) => !state);
+  }, [reload1]);
+
+  const handleLike = async (e) => {
+    let info = "";
+    try {
+      const { data } = await axios.patch("/users/likeShare/" + userData._id, {
+        shareId: e.target.value,
+      });
+      for (let row of rows) {
+        if (row._id === e.target.value) {
+          row.like = !row.like;
+          if (row.like === true) {
+            info = "Save this Share in Fav-list";
+          } else {
+            info = "Remove this Share from Fav-list";
+          }
+        }
+      }
+      setReload((state) => !state);
+      toast.info(`You ${info}  successfully`, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const handleOrderClick = (e) => {
     handleOrder(e);
   };
@@ -83,13 +138,22 @@ const MainShare = ({
               <StyledTableRow key={row._id}>
                 <StyledTableCell component="th" scope="row">
                   <Button
+                    value={row._id}
+                    onClick={handleLike}
+                    disabled={!loggedIn}
+                    sx={{
+                      color: row.like ? "red" : "grey",
+                    }}
+                  >
+                    ♥️
+                  </Button>{" "}
+                  |
+                  <Button
                     variant="text"
                     disabled={!loggedIn}
                     onClick={handleShareScreenClick}
                     sx={{
                       color: "darkblue",
-                      width: "80%",
-                      border: "1px solid navy",
                     }}
                     value={row._id}
                   >

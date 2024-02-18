@@ -72,6 +72,17 @@ const userSchema = new Schema<IUser>({
       },
     },
   ],
+  myLikes: [
+    {
+      shareId: {
+        type: String,
+        default: "",
+      },
+      value: {
+        type: Number,
+      },
+    },
+  ],
   email: {
     required: true,
     unique: true,

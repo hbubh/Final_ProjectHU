@@ -1,45 +1,37 @@
 import * as React from "react";
-import ListSubheader from "@mui/material/ListSubheader";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import Button from "@mui/material/Button";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
-import { Link } from "react-router-dom";
 import TableRow from "@mui/material/TableRow";
 import axios from "axios";
 import Title from "./Title";
-import ROUTES from "../routes/ROUTES";
 import ShareCardsOrders from "./ui/SharesCardOrder";
 
-const Orders = ({ thisUser }) => {
-  const [myShares, setShares] = React.useState(false);
+const Likes = ({ thisUser }) => {
+  const [myLikes, setLikes] = React.useState(false);
   const [thisOP, setOP] = React.useState("1");
   const [myData, setData] = React.useState([]);
   const [thisTrue2, setTrue2] = React.useState(false);
   const [sharesArry, setSharesArry] = React.useState([]);
   React.useEffect(() => {
-    if (!myShares) {
-      setShares(thisUser.myShares);
+    if (!myLikes) {
+      setLikes(thisUser.myLikes);
     }
-    if (myShares) {
-      for (let i of myShares) {
+    if (myLikes) {
+      for (let i of myLikes) {
         axios
           .get(`/shares/${i.shareId}`)
           .then(({ data }) => {
             const { share } = data;
-            share.costs = i.costs;
-            share.pcs = i.pcs;
-            for (let x of sharesArry) {
-              if (x._id === share._id) {
-              }
-            }
-            setSharesArry((current) => [...current, share]);
-            if (share.price[1] * share.pcs - share.costs <= 0) {
+            share.value = i.value;
+            if (share.value > share.price[1]) {
               share.sx = { color: "red" };
             } else {
               share.sx = { color: "green" };
             }
+            setSharesArry((current) => [...current, share]);
           })
           .catch((err) => {
             console.log("err", err);
@@ -71,16 +63,15 @@ const Orders = ({ thisUser }) => {
   return (
     <React.Fragment>
       {thisTrue2 ? <ShareCardsOrders myData={myData} ClickX={ClickX} /> : <></>}
-      <Title>My stock portfolio </Title>
+      <Title>My Fav-Shares </Title>
       <Table size="small" sx={{ opacity: thisOP }}>
         <TableHead>
           <TableRow>
             <TableCell>Symbol</TableCell>
             <TableCell>Subtitle</TableCell>
-            <TableCell>Numbers Of Shares</TableCell>
-            <TableCell>Costs</TableCell>
-            <TableCell>Value</TableCell>
-            <TableCell align="right">Profit</TableCell>
+            <TableCell>Value when saved</TableCell>
+            <TableCell>Correct Value</TableCell>
+            <TableCell align="right">Optional Profit</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -98,23 +89,17 @@ const Orders = ({ thisUser }) => {
                     </Button>
                   </TableCell>
                   <TableCell>{row.subtitle}</TableCell>
-                  <TableCell>{row.pcs} pcs</TableCell>
-                  <TableCell>${row.costs}</TableCell>
-                  <TableCell>${row.price[1] * row.pcs}</TableCell>
+                  <TableCell>${row.value}</TableCell>
+                  <TableCell>${row.price[1]}</TableCell>
                   <TableCell sx={row.sx} align="right">
-                    ${row.price[1] * row.pcs - row.costs}
+                    ${row.price[1] - row.value} Per-Share
                   </TableCell>
                 </TableRow>
               ))
             : null}
         </TableBody>
       </Table>
-      <Link to={ROUTES.SHARES} style={{ textDecoration: "none" }}>
-        <ListSubheader component="div" inset sx={{ color: "maroon" }}>
-          Click here to Creating a new buy/sell order
-        </ListSubheader>
-      </Link>
     </React.Fragment>
   );
 };
-export default Orders;
+export default Likes;

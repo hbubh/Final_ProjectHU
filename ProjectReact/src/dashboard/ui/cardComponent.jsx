@@ -25,6 +25,10 @@ export default function MediaCard({ thisTheme }) {
     }
   }, []);
 
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <Grid container spacing={3}>
       <Grid item xs={12}>
@@ -67,7 +71,11 @@ export default function MediaCard({ thisTheme }) {
               image={ta.image}
               title="green iguana"
             />
-            <Link to={ROUTES.NEWS} style={{ textDecoration: "none" }}>
+            <Link
+              to={ROUTES.NEWS}
+              onClick={handleClick}
+              style={{ textDecoration: "none" }}
+            >
               <CardActions>
                 <Button size="small">Learn More</Button>
               </CardActions>

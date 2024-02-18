@@ -26,6 +26,7 @@ import Orders from "./Orders";
 import { setUserObj, userObj } from "./ui/objectUser";
 import Drawer from "./ui/drawer";
 import MediaCard from "./ui/cardComponent";
+import Likes from "./Likes";
 
 function Copyright(props) {
   return (
@@ -181,6 +182,11 @@ const DashboardT = () => {
             <Grid item xs={12}>
               <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
                 <Orders thisUser={thisUser} />
+              </Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+                <Likes thisUser={thisUser} />
               </Paper>
             </Grid>
             <Grid item xs={12}>

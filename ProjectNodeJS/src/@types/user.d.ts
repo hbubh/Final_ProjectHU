@@ -40,6 +40,12 @@ type IUser = {
       costs: number;
     }
   ];
+  myLikes?: [
+    {
+      shareId: string;
+      value: number;
+    }
+  ];
   _id?: string;
 };
 type ILogin = {
