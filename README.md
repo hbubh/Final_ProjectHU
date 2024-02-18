@@ -85,7 +85,7 @@ User Requests:
 
 - Selling Stocks - Each user contains in their personal details stored in the database, information about all the securities they own, a selling action will update this list for the user, and among other things, will also update the sold security where all the owners of that security are also displayed. However, this request will be found under user requests since this type of request also updates his cash wallet after performing the action.
 
-- Like/Unlike Stocks - Next to each stock on the main stock page, you can click on the heart-shaped symbol. Shares that the user liked will mark the heart symbol next to them in red. Otherwise the heart will be colorless. The total number of shares that the user will be able to see in the table on the home page
+- Like/Unlike Stocks - Next to each stock on the main stock page, you can click on the heart-shaped symbol. Shares that the user liked will mark the heart symbol next to them in red. Otherwise the heart will be colorless. The total number of shares that the user will be able to see in the table on the home page. This request is within user requests and not stock type requests since this request updates the user's personal data and does not make any update in the stock database
 
 - User Registration - A systematic registration process
 
